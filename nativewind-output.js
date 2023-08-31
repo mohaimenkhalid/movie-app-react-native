@@ -234,12 +234,6 @@ _NativeWindStyleSheet.create({
       "paddingBottom": 0,
       "paddingLeft": 0
     },
-    "dialog": {
-      "paddingTop": 0,
-      "paddingRight": 0,
-      "paddingBottom": 0,
-      "paddingLeft": 0
-    },
     "img": {
       "maxWidth": "100%"
     },
@@ -249,12 +243,33 @@ _NativeWindStyleSheet.create({
     "[hidden]": {
       "display": "none"
     },
-    "flex": {
-      "display": "flex"
+    "flex-1": {
+      "flexGrow": 1,
+      "flexShrink": 1,
+      "flexBasis": "0%"
     },
-    "text-5xl": {
-      "fontSize": "3rem",
-      "lineHeight": 1
+    "flex-row": {
+      "flexDirection": "row"
+    },
+    "bg-neutral-800": {
+      "backgroundColor": "rgba(38, 38, 38, 1)"
+    },
+    "text-3xl": {
+      "fontSize": "1.875rem",
+      "lineHeight": "2.25rem"
+    },
+    "font-bold": {
+      "fontWeight": "700"
+    },
+    "text-white": {
+      "color": "rgba(255, 255, 255, 1)"
+    },
+    "bg-blue-700": {
+      "backgroundColor": "rgba(29, 78, 216, 1)"
+    },
+    "text-lg": {
+      "fontSize": "1.125rem",
+      "lineHeight": "1.75rem"
     }
   }
 });
