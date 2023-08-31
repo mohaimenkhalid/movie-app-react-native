@@ -1,10 +1,15 @@
 import {View, Text, TouchableOpacity, ScrollView, TouchableWithoutFeedback, Image, Dimensions} from "react-native";
 import {styles} from "../theme";
+import {useNavigation} from "@react-navigation/native";
 
 var {width, height} = Dimensions.get('window')
 
 const MovieList = ({title, data}) => {
-const movieName = "Inoana Jordana Indonetia text"
+    const navigation = useNavigation()
+    const handleClick = (item) => {
+        navigation.navigate('MovieDetails', item)
+    }
+    const movieName = "Inoana Jordana Indonetia text"
   return (
       <View classname="mb-8 space-y-4">
           <View className="mx-4 flex-row justify-between items-center">
@@ -22,7 +27,10 @@ const movieName = "Inoana Jordana Indonetia text"
               {
                   data.map((item, index) => {
                       return (
-                          <TouchableWithoutFeedback key={index}>
+                          <TouchableWithoutFeedback
+                              key={index}
+                              onPress={() => handleClick(item)}
+                          >
                                 <View className="space-y-2 mr-4">
                                     <Image source={{uri: 'https://www.themoviedb.org/t/p/w220_and_h330_face/Af4bXE63pVsb2FtbW8uYIyPBadD.jpg'}}
                                            style={{width: width*0.32, height: height*0.22}}

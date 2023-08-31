@@ -1,12 +1,13 @@
 import {Dimensions, Text, View, Image} from "react-native";
 import Carousel from "react-native-snap-carousel";
 import {TouchableWithoutFeedback} from "nativewind/dist/preflight";
+import {useNavigation} from "@react-navigation/native";
 var {width, height} = Dimensions.get('window')
 
 const TrendingMovies = ({trending}) => {
-    const handleClick = () => {
-        //Navigate to movie list
-        console.log("bb")
+    const navigation = useNavigation()
+    const handleClick = (item) => {
+        navigation.navigate('MovieDetails', item)
     }
   return (
       <View className="mb-8">
@@ -15,7 +16,7 @@ const TrendingMovies = ({trending}) => {
           </Text>
           <Carousel
               data={trending}
-              renderItem={({item, index}) => <MovieCard item={item} handleClick={handleClick} />}
+              renderItem={({item, index}) => <MovieCard item={item} handleClick={() => handleClick(item)} />}
               firstItem={1}
               sliderWidth={width}
               itemWidth={width*0.65}
