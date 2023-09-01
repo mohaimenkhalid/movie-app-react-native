@@ -1,7 +1,7 @@
 import {View, Text, ScrollView, TouchableOpacity} from "nativewind/dist/preflight";
 import {Image} from "react-native";
 
-const Cast = ({cast}) => {
+const Cast = ({cast, navigation}) => {
     const personName = "Jon Weak"
     const characterName = "Jon Weak Abrar"
     return (
@@ -20,6 +20,7 @@ const Cast = ({cast}) => {
                             <TouchableOpacity
                                 key={index}
                                 className="mr-4 items-center"
+                                onPress={() => navigation.navigate('Person', person)}
                             >
                                <View className="w-20 h-20 rounded-full overflow-hidden border border-neutral-500 mb-2">
                                    <Image source={{uri: 'https://www.themoviedb.org/t/p/w220_and_h330_face/Af4bXE63pVsb2FtbW8uYIyPBadD.jpg'}}

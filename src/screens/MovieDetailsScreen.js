@@ -6,6 +6,7 @@ import {ChevronLeftIcon, HeartIcon} from "react-native-heroicons/outline";
 import {styles} from "../theme";
 import { LinearGradient } from 'expo-linear-gradient';
 import Cast from "../components/Cast";
+import MovieList from "../components/MovieList";
 
 
 var {width, height} = Dimensions.get('window')
@@ -15,6 +16,7 @@ const MovieDetailsScreen = () => {
     const {params: item} = useRoute()
     const navigation = useNavigation()
     const [cast, setCast] = useState([1, 2, 3, 4])
+    const [similarMovies, setSimilarMovies] = useState([1, 2, 3, 4])
     useEffect(() => {
         //call api
     }, [item])
@@ -76,7 +78,9 @@ const MovieDetailsScreen = () => {
                 </Text>
             </View>
 
-            <Cast cast={cast} />
+            <Cast cast={cast} navigation={navigation} />
+
+            <MovieList showSeeAll={false} title='Similar Movies' data={similarMovies} />
         </ScrollView>
     )
 }
