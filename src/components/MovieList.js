@@ -15,7 +15,7 @@ const MovieList = ({title, data}) => {
           <View className="mx-4 flex-row justify-between items-center">
               <Text className="text-white text-xl">{title}</Text>
               <TouchableOpacity>
-                  <Text className="text-[18px]" style={styles.text}>See All</Text>
+                  <Text className="text-[18px] leading-7" style={styles.text}>See All</Text>
               </TouchableOpacity>
           </View>
 

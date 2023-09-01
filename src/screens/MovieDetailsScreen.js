@@ -1,10 +1,11 @@
 import {View, Text, ScrollView, TouchableOpacity, Image, Dimensions, Platform} from "react-native";
 import {useNavigation, useRoute} from "@react-navigation/native";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {SafeAreaView} from "react-native-safe-area-context";
 import {ChevronLeftIcon, HeartIcon} from "react-native-heroicons/outline";
 import {styles} from "../theme";
 import { LinearGradient } from 'expo-linear-gradient';
+import Cast from "../components/Cast";
 
 
 var {width, height} = Dimensions.get('window')
@@ -13,6 +14,7 @@ const topMargin = ios ? '' : 'mt-3'
 const MovieDetailsScreen = () => {
     const {params: item} = useRoute()
     const navigation = useNavigation()
+    const [cast, setCast] = useState([1, 2, 3, 4])
     useEffect(() => {
         //call api
     }, [item])
@@ -73,6 +75,8 @@ const MovieDetailsScreen = () => {
                     Finding himself in a new era, and approaching retirement, Indy wrestles with fitting into a world that seems to have outgrown him. But as the tentacles of an all-too-familiar evil return in the form of an old rival, Indy must don his hat and pick up his whip once more to make sure an ancient and powerful artifact doesn't fall into the wrong hands.
                 </Text>
             </View>
+
+            <Cast cast={cast} />
         </ScrollView>
     )
 }
