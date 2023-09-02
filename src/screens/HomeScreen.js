@@ -8,12 +8,14 @@ import {styles} from "../theme";
 import TrendingMovies from "../components/TrendingMovies";
 import MovieList from "../components/MovieList";
 import {useNavigation} from "@react-navigation/native";
+import {Loading} from "../components/Loading";
 
 const ios = Platform.OS === 'ios'
 function HomeScreen() {
     const [trending, setTrending] = useState([1, 2, 3, 4])
     const [upcoming, setUpcoming] = useState([1, 2, 3, 4])
     const [topRated, setTopRated] = useState([1, 2, 3, 4])
+    const [loading, setSetLoading] = useState(false)
     const navigation  = useNavigation()
     return (
         <View className="flex-1 bg-neutral-800">
@@ -33,11 +35,20 @@ function HomeScreen() {
             </SafeAreaView>
 
             {/*Trending movies*/}
-            <ScrollView>
-                <TrendingMovies trending={trending} />
-                <MovieList title={'Upcoming'} data={upcoming} />
-                <MovieList title={'Top Rated'} data={topRated} />
-            </ScrollView>
+            {
+                loading
+                    ?
+                    <Loading />
+                    :
+                    (
+                        <ScrollView>
+                            <TrendingMovies trending={trending} />
+                            <MovieList title={'Upcoming'} data={upcoming} />
+                            <MovieList title={'Top Rated'} data={topRated} />
+                        </ScrollView>
+                    )
+            }
+
         </View>
     );
 }

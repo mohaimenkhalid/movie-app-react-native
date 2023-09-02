@@ -1,10 +1,12 @@
-import {View, Text, ScrollView, TextInput, TouchableOpacity, Image, Dimensions} from "react-native"
+import {View, Text, ScrollView, TextInput, TouchableOpacity, Image, Dimensions, Platform} from "react-native"
 import {SafeAreaView} from "react-native-safe-area-context";
 import {XMarkIcon} from "react-native-heroicons/outline";
 import {useNavigation} from "@react-navigation/native";
 import {useState} from "react";
 import {TouchableWithoutFeedback} from "nativewind/dist/preflight";
 
+const ios = Platform.OS === 'ios'
+const marginTop = ios ? 'mt-3' : ''
 const SearchScreen = () => {
     const navigation = useNavigation()
     var {width, height} = Dimensions.get('window')
@@ -13,7 +15,7 @@ const SearchScreen = () => {
     return (
         <View className="flex-1 bg-neutral-800">
             <SafeAreaView>
-                <View className="mx-4 mb-3 flex-row justify-between items-center border border-neutral-500 rounded-full">
+                <View className={'mx-4 mb-3 flex-row justify-between items-center border border-neutral-500 rounded-full '+marginTop}>
                     <TextInput
                         placeholder="Search Movie"
                         placeholderTextColor={'lightgray'}
